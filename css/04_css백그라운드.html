@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백그라운드</title>
+    <style>
+        .box01 {
+            height: 100px;
+            background-color: #f00;
+        }
+
+        .box02 {
+            height: 300px;
+            background-image: url(../images/grafflogo.png);
+            /* 
+            경로
+            / : 경로의 최상위로 가는 명령
+            ./ : 형제 폴더로 가는 명령 (생략 가능)
+            ../ : 부모 폴더로 가는 명령
+            */
+        }
+
+        .box03 {
+            height: 300px;
+            background-image: url(../images/grafflogo.png);
+            background-repeat: no-repeat;
+            background-color: #f0f;
+        }
+
+        .box04 {
+            height: 300px;
+            background-image: url(../images/grafflogo.png);
+            background-repeat: no-repeat;
+            background-color: #ff0;
+            background-position: 100px 200px;
+        }
+
+        .box05 {
+            height: 300px;
+            background-image: url(../images/grafflogo.png);
+            background-repeat: no-repeat;
+            background-color: #00f;
+            background-position: right bottom;
+        }
+
+        .box06 {
+            height: 300px;
+            background-image: url(../images/grafflogo.png);
+            background-repeat: no-repeat;
+            background-color: #ddd;
+            background-position: center center;
+            /* background-size: 300px 30px; */
+            /* background-size: contain; */
+            background-size: cover;
+        }
+
+        /* background 축약형 */
+        .box07 {
+            height: 300px;
+            background: #ff0 url(../images/grafflogo.png) no-repeat center center/cover;
+        }
+
+        .box08 {
+            /* 배경은 border의 바깥쪽으로부터 시작 */
+            position: relative;
+            border: 50px solid #333;
+            color: #fff;
+            font-size: 100px;
+            padding: 100px;
+            height: 500px;
+            margin: 0 0 500px 0;
+            background: url(../images/mainvisual01.jpg) no-repeat fixed center center/cover;
+            /* background-attachment: fixed; */
+        }
+
+        .po {
+            /* 좌표는 border의 안쪽으로부터 시작 */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box01"></div>
+    <div class="box02"></div>
+    <div class="box03"></div>
+    <div class="box04"></div>
+    <div class="box05"></div>
+    <div class="box06"></div>
+    <div class="box07"></div>
+    <div class="box08">
+        <div class="in">A</div>
+        <div class="po">A</div>
+    </div>
+</body>
+
+</html>
