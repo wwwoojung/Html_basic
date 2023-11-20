@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>언제적 float을 배운다고 난리냐!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .default {
+            padding: 100px 0;
+            background: #f9f9f9;
+        }
+
+        .inner {
+            /* width 100%: 상속받는 사이즈, auto: 계속 늘어나는 것 */
+            max-width: 1200px;
+            margin: 0 auto;
+            background: tomato;
+            /* float: left; */
+            /* overflow: hidden; */
+        }
+
+        .box {
+            float: left;
+            height: 100px;
+            background: #ff0;
+        }
+
+        /* .float01 .inner {
+            border: 3px solid #333;
+        } */
+
+        .float01 .box {
+            float: left;
+            width: 33.333333333%;
+            height: auto;
+            padding: 0 15px;
+        }
+
+        .float02 .inner {
+            font-size: 0;
+            text-align: center;
+        }
+
+        .float02 .box2 {
+            display: inline-block;
+            background: #ff0;
+            width: 200px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+
+        .b_box {
+            background: #f00;
+        }
+
+        .flex01 .inner {
+            display: flex;
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        .flex01 .inner>* {
+            flex: 1;
+            background: #ff0;
+        }
+
+        .flex02 .inner {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        .flex02 .inner>* {
+            flex: 0 0 100px;
+            background: #ff0;
+        }
+
+        .float03 .box3 {
+            float: left;
+            width: 50%;
+            background: #ff0;
+            padding: 0 15px;
+            height: 200px;
+        }
+
+        .flex03 .inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        .flex03 .inner>* {
+            flex: 1 0 400px;
+            background: #ff0;
+        }
+
+        .grid .inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        .grid .inner>* {
+            background: #ff0;
+        }
+
+        .clearfix::after,
+        .cf::after,
+        .row::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="float01 default">
+        <div class="inner clearfix">
+            <div class="box">01</div>
+            <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur alias esse, quas nulla
+                expedita natus veniam earum mollitia iusto? Porro nemo nostrum ipsa magni! Pariatur tempora delectus
+                quisquam! Ipsam ducimus, accusamus porro quaerat, nemo molestias amet eius eos qui optio, iusto eligendi
+                saepe id soluta dolorem deserunt dignissimos culpa ex illum commodi odit. In iste ea pariatur porro vero
+                nam accusantium nobis sit totam doloremque maxime sapiente odit illum, voluptatem amet delectus, animi
+                nemo voluptatibus, fuga mollitia dignissimos iure. Autem possimus suscipit esse sequi eius, nemo magnam!
+                Impedit, minima ipsam ex iure ducimus nisi error, sed rerum blanditiis laborum sint.</div>
+            <div class="box">03</div>
+            <!-- <div class="clearfix"></div> -->
+        </div>
+        <div class="b_box">04</div>
+    </section>
+
+    <section class="float02 default">
+        <div class="inner clearfix">
+            <div class="box2">01</div>
+            <div class="box2">02<br />04</div>
+            <div class="box2">03</div>
+            <!-- <div class="clearfix"></div> (X) html에 내용없이 기능만 하는 box를 만드는 것은 문제가 됨-->
+        </div>
+        <div class="b_box">04</div>
+    </section>
+
+    <section class="float03 default">
+        <div class="inner clearfix">
+            <div class="box3">01<br />01<br />01</div>
+            <div class="box3">02<br />02</div>
+            <div class="box3">03</div>
+            <div class="box3">04</div>
+        </div>
+    </section>
+
+    <section class="flex03 default">
+        <div class="inner">
+            <div class="box3">01<br />01<br />01</div>
+            <div class="box3">02<br />02</div>
+            <div class="box3">03</div>
+            <div class="box3">04</div>
+            <div class="box3">05</div>
+        </div>
+    </section>
+
+    <section class="grid default">
+        <div class="inner">
+            <div class="box3">01<br />01<br />01</div>
+            <div class="box3">02<br />02</div>
+            <div class="box3">03</div>
+            <div class="box3">04</div>
+            <div class="box3">05</div>
+        </div>
+    </section>
+
+    <section class="flex01 default">
+        <div class="inner">
+            <div class="box_f">01</div>
+            <div class="box_f">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur alias esse, quas
+                nulla
+                expedita natus veniam earum mollitia iusto? Porro nemo nostrum ipsa magni! Pariatur tempora delectus
+                quisquam! Ipsam ducimus, accusamus porro quaerat, nemo molestias amet eius eos qui optio, iusto eligendi
+                saepe id soluta dolorem deserunt dignissimos culpa ex illum commodi odit. In iste ea pariatur porro vero
+                nam accusantium nobis sit totam doloremque maxime sapiente odit illum, voluptatem amet delectus, animi
+                nemo voluptatibus, fuga mollitia dignissimos iure. Autem possimus suscipit esse sequi eius, nemo magnam!
+                Impedit, minima ipsam ex iure ducimus nisi error, sed rerum blanditiis laborum sint.</div>
+            <div class="box_f">03</div>
+            <!-- <div class="clearfix"></div> -->
+        </div>
+        <div class="b_box">04</div>
+    </section>
+
+    <section class="flex02 default">
+        <div class="inner ">
+            <div class="box">01</div>
+            <div class="box">02<br />04</div>
+            <div class="box">03</div>
+            <!-- <div class="clearfix"></div> (X) html에 내용없이 기능만 하는 box를 만드는 것은 문제가 됨-->
+        </div>
+        <div>04</div>
+    </section>
+</body>
+
+</html>
